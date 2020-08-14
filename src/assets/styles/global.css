@@ -1,0 +1,69 @@
+:root {
+  /*Se um dia eu quiser alterar o tamanho da font para mobile é só eu mecher na propriedade abaixo*/
+  font-size: 60%;
+
+  /*Algumas váriaveis de CORES*/
+
+  --color-background: #F0F0F7;
+  --color-primary-lighter: #9871F5;
+  --color-primary-light: #916BEA;
+  --color-primary: #8257E5;
+  --color-primary-dark: #774DD6;
+  --color-primary-darker: #6842C2;
+  --color-secundary: #04D361;
+  --color-secundary-dark: #04BF58;
+  --color-title-in-primary: #FFFFFF;
+  --color-text-in-primary: #D4C2FF;
+  --color-text-title: #32264D;
+  --color-text-complement: #9C98A6;
+  --color-text-base: #6A6180;
+  --color-line-in-white: #E6E6F0;
+  --color-input-background: #F8F8FC;
+  --color-button-text: #FFFFFF;
+  --color-box-base: #FFFFFF;
+  --color-box-footer: #FAFAFC;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/*Para que o Padding conte na LARGURA DO ELEMENTO*/
+}
+
+html, body, #root {
+  height: 100vh;/*100vh para que o contéudo sempre ocupe 100% de altura*/
+}
+
+body{
+  background: var(--color-background);
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;/*Isto irá fazer com que todo contéudo da nossa DIV "ROOT"
+  esteja sempre alinhado ao centro da TELA*/
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Poppins;/*"rem" usado para aplicaçôes RESPONSIVAS 
+  1 rem significa 9.6px
+  1.6 rem deve ser uns 16px*/
+  color: var(--color-text-base);
+}
+
+.container {
+  width: 90vw;/*Irá ocupar 90% da tela HORIZONTALMENTE*/
+  max-width: 700px;
+}
+
+/*Nos dispositivos que tiver no minimo 700px ...*/
+@media (min-width: 700px){
+  /*Aumentarei um pouquinho o font-size*/
+  :root{
+    font-size: 62.5%;
+  }
+}

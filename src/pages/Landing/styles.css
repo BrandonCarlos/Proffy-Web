@@ -1,0 +1,168 @@
+#page-landing{
+  width: 100vw;/*100% da tela total*/
+  height: 100vh;/*100% de altura*/
+
+  /*Usando display: flex  para poder alinhar ao centro todo o contéudo HTML*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-text-in-primary);
+  background: var(--color-primary);
+}
+
+.logo-container img {
+  height: 10rem;
+}
+
+.hero-image{
+  /*Adicionamos a linha abaixo para que não haja a barra de rolagem
+  fazendo com que a imagem se adeque mais ainda*/
+  width: 100%;
+}
+
+.logo-container{
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
+.logo-container h2{
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 4.6rem;
+  margin-top: 0.8rem;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  margin: 3.2rem 0;
+}
+
+.buttons-container a {
+  width: 30rem;
+  height: 10.4rem;
+  border-radius: 0.8rem;
+  font: 700 2.0rem Archivo;
+
+  /*As duas linhas abaixo farâo com que a imagem e o texto do botão fiquem CENTRALIZADAS*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--color-button-text);
+
+  transition: background-color 0.2s;
+}
+
+.buttons-container a:first-child {
+  /*Distânciamento só no primeiro botão distânciamento na direita*/
+  margin-right: 1.6rem;
+}
+
+.buttons-container a img {
+  /*Diminuindo o tamanho da imagem do botão*/
+  width: 4rem;
+}
+
+.buttons-container a.study {
+  background: var(--color-primary-lighter);
+}
+
+.buttons-container a.give-classes {
+  background: var(--color-secundary);
+}
+
+.buttons-container a.study:hover {
+  background: var(--color-primary-light);
+}
+
+.buttons-container a.give-classes:hover {
+  background: var(--color-secundary-dark);
+}
+
+.buttons-container a img {
+  /*Mechendo na IMAGEM DO BOTÃO (LIVRO E COMPUTADOR)*/
+  margin-right: 2.4rem;
+}
+
+.total-connections {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-connections img {
+  /*Distânciando o CORAÇÃO DO TEXTO*/
+  margin-left: 0.8rem;
+}
+
+/*Utilizaremos a funcionalidade de GRID*/
+/*Vamos adaptar para DESKTOP*/
+/*Break Point é aonde irá fazer a CONVERSÃO de MOBILE PARA DESKTOP no caso 
+o nosso BREAK POINT é de 1100px */
+@media (min-width: 1100px) {
+  #page-landing-content {
+    max-width: 1100px;
+
+    /*Com o display: grid  vamos basicamente falar aonde cada ELEMENTO: Titulo, botôes irão ficar no LAYOUT*/
+    display: grid;
+    /*Aqui estamos falando que temos 2 LINHAS
+    1° linha irá ocupar 350px
+    2° linha irá ocupar o espaço que sobrar*/
+    grid-template-rows: 350px 1fr;
+    /*A 1° coluna irá ocupar 2vezes mais que as outras COLUNAS
+    a LOGO irá ocupar 2 ESPAÇOS 50% da TELA*/
+    grid-template-columns: 2fr 1fr 1fr;
+    /*O que irá ficar dentro de cada COLUNA E CADA LINHA*/
+    /*logo = texto, hero hero = IMAGEM*/
+    grid-template-areas: 
+    "logo hero hero"
+    "buttons buttons total"
+    ;
+  }
+
+  .logo-container {
+    /*.logo-container que ocupa no GRID é a área: LOGO */
+    grid-area: logo;
+    /*O logo está alinhado ao TOPO e não queremos isso */
+    align-self: center;
+    /*Para deixar o logo COMPLETAMENTE A ESQUERDA */
+    text-align: left;
+    margin: 0;
+  }
+
+  .logo-container h2 {
+    text-align: initial;
+    font-size: 3.6rem;
+  }
+
+  .logo-container img {
+    /*Para a IMG ocupar 100% da altura possivel*/
+    height: 100%;
+  }
+
+  .hero-image {
+    grid-area: hero;
+    justify-self: end;
+  }
+
+  .buttons-container{
+    /*A aréa que ocupa nosso .buttons-container é a área "buttons" */
+    grid-area: buttons;
+    /*Para garantir que vai iniciar aki na ESQUERDA (botôes)*/
+    justify-content: flex-start;
+  }
+
+  .buttons-container a {
+    font-size: 2.4rem;
+  }
+
+  .total-connections {
+    grid-area: total;
+    /*Para o "total" ficar bem grudado na DIREITA */
+    justify-self: end;
+  }
+}
